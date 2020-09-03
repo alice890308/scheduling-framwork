@@ -3,6 +3,7 @@ package main
 import (
 	"math/rand"
 	"k8s.io/kubernetes/cmd/kube-scheduler/app"
+	"github.com/alice890308/scheduling-framwork/pkg/plugin"
 	"k8s.io/component-base/logs"
 	"os"
 	"time"
