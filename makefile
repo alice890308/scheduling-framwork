@@ -11,10 +11,11 @@ init:
 
 local: init
 	go build -o=${BIN_DIR}/alice-scheduler ./cmd/scheduler
-	#go build -o=${_output/bin}/alice-scheduler ./cmd/scheduler
+	#go build -o=_output/bin/alice-scheduler ./cmd/scheduler
 
 build-linux: init
 	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o=${BIN_DIR}/alice-scheduler ./cmd/scheduler
+	#CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o=_output/bin/alice-scheduler ./cmd/scheduler
 
 image: build-linux
 	docker build --no-cache . -t alice-scheduler:${TAG}
