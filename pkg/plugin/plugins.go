@@ -5,6 +5,7 @@ import (
 	v1 "k8s.io/api/core/v1"
 	v1qos "k8s.io/kubernetes/pkg/apis/core/v1/helper/qos"
 	"strconv"
+	"k8s.io/apimachinery/pkg/runtime"
 )
 
 const Name = "alice-plugin"
@@ -51,4 +52,8 @@ func compQOS(p1, p2 *v1.Pod) bool {
 		return p2QOS != v1.PodQOSGuaranteed
 	}
 	return p2QOS == v1.PodQOSBestEffort
+}
+
+func New(_ *runtime.Unknown, _ framework.FrameworkHandle) (framework.Plugin, error) {
+	return &Plugin{}, nil
 }
