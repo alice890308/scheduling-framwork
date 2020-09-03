@@ -45,7 +45,7 @@ spec:
           name: scheduler-config
       containers:
       - name: alice-scheduler-pod
-        image: alice890308/alice-scheduler:666
+        image: alice890308/alice-scheduler:777
         imagePullPolicy: IfNotPresent
         args:
         - alice-scheduler
